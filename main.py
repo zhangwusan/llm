@@ -1,6 +1,6 @@
 import numpy as np
 
-from A11M.rnn.sample import RNN
+from A11M.rnn import RNN
 
 # Define variable
 X = [
