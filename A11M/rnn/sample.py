@@ -47,3 +47,18 @@ class RNN(RnnBase):
             hidden_states.append(h.copy())
 
         return hidden_states
+    
+    def add_output_layer(self, hidden_size, output_size):
+        self.W_hy = np.random.randn(hidden_size, output_size) * np.sqrt(1. / hidden_size)
+        self.b_y = np.zeros((1, output_size))
+
+    def output(self, h):
+        y = h @ self.W_hy + self.b_y
+        return self.softmax(y)
+
+    def softmax(self, x):
+        e_x = np.exp(x - np.max(x))
+        return e_x / e_x.sum(axis=1, keepdims=True)
+
+    def cross_entropy(self, y_pred, y_true_idx):
+        return -np.log(y_pred[0, y_true_idx] + 1e-9)
