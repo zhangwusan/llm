@@ -57,7 +57,7 @@ class RNN(RnnBase):
         return self.softmax(y)
 
     def softmax(self, x):
-        e_x = np.exp(x - np.max(x))
+        e_x: np.ndarray = np.exp(x - np.max(x))
         return e_x / e_x.sum(axis=1, keepdims=True)
 
     def cross_entropy(self, y_pred, y_true_idx):

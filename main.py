@@ -1,18 +1,19 @@
-import numpy as np
+from helper import one_hot
 
-from A11M.rnn import RNN
+chars = sorted(list(set("hello")))
+char2idx = {ch: i for i, ch in enumerate(chars)}
+idx2char = {i: ch for ch, i in char2idx.items()}
+data = [char2idx[ch] for ch in "hello"]
 
-# Define variable
-X = [
-    np.array([1, 0.8]),
-    np.array([0.5, -0.7]),
-    np.array([0.3, 1.2])
-]
+print("Characters:", chars)
+print("Character to Index Mapping:", char2idx)
+print("Data:", data)
 
-rnn = RNN(input_size=2, hidden_size=2)
+vocab_size = len(chars)
+seq_len = vocab_size + 1
+i = 0
 
-states = rnn.forward(X)
-
-print("Step-by-step hidden states:")
-for t, h_t in enumerate(states):
-    print(f"t={t} | h={h_t}")
+inputs = [one_hot(data[j], vocab_size) for j in range(i, i + seq_len)]
+print("One-hot inputs:")
+for inp in inputs:
+    print(inp)

@@ -1,0 +1,8 @@
+
+vanishing / exploding gradient problem
+
+- long term to remember
+- potential memory to remember
+- potential long term memory
+- potential memory to remember
+- potential short term memory
