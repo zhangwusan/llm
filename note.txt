@@ -6,3 +6,8 @@ vanishing / exploding gradient problem
 - potential long term memory
 - potential memory to remember
 - potential short term memory
+
+
+RNN:
+Good for language model, sequence prediction, time series forcasting
+Bad for Vanishing/Exploding Gradients, Short-term memory
